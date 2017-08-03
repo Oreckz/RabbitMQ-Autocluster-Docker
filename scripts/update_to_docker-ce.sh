@@ -3,14 +3,12 @@
 #Warn the user because we are nice
 echo "Running this will remove the current Docker installation"
 read -r -p "Are you sure? [y/N] " response
-case "$response" in
-    [yY][eE][sS]|[yY])
-        upgrade_docker()
-        ;;
-    *)
-        return 0
-        ;;
-esac
+if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
+then
+    upgrade_docker()
+else
+    return 0
+fi
 
 function upgrade_docker {
 
