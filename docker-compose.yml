@@ -19,6 +19,7 @@ services:
       - consul
       - agent
       - server
+      - data-dir=/tmp/consuldata
       - ui
       - client=0.0.0.0
       - bootstrap-expect=1
