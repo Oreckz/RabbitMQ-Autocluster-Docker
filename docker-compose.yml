@@ -22,6 +22,7 @@ services:
       - -data-dir=/consul/data
       - -ui
       - -client=0.0.0.0
+      - -bind={{ GetInterfaceIP "eth0" }}
       - -bootstrap-expect=1
       - -retry-join=consul
 
