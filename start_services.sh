@@ -15,8 +15,7 @@ docker service create \
     --network testnet \
     -p 8500:8500 \
     -e 'CONSUL_BIND_INTERFACE=eth0' \
-    -e '
-    ' \
+    -e 'CONSUL_LOCAL_CONFIG={"skip_leave_on_interrupt": true}' \
     consul agent \
     -server -ui -client=0.0.0.0 \
     -bootstrap-expect=1 \
