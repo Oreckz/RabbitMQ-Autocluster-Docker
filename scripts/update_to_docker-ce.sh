@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#This script is used to change your docker install to the official repo
+
 function upgrade_docker () {
     #Gracefully shut down and remove Docker
     docker stop $(docker ps -q)
