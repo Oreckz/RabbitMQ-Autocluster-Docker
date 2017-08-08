@@ -7,7 +7,7 @@ networks:
 services:
   seed:
     hostname: seed
-    image: consul:0.8.0
+    image: consul:latest
     deploy:
       restart_policy:
         condition: none  #we do not want this to be restarted on timeout (see entrypoint options below)
@@ -22,14 +22,14 @@ services:
       - consul
       - agent
       - -server
-      - -bootstrap-expect=5
+      - -bootstrap-expect=4
       - -data-dir=/tmp/consuldata
       - -bind={{ GetInterfaceIP "eth0" }}
     networks:
       - "swarm"
 
   cluster:
-    image: consul:0.8.0
+    image: consul:latest
     depends_on:
       - "seed"
     deploy:
