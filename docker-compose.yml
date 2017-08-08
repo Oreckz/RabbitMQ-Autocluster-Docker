@@ -12,10 +12,6 @@ services:
       restart_policy:
         condition: none  #we do not want this to be restarted on timeout (see entrypoint options below)
       replicas: 1
-      placement:
-        constraints:
-          - "engine.labels.access == temp"
-          - "engine.labels.access != consul"
     environment:
       - "CONSUL_LOCAL_CONFIG={\"disable_update_check\": true}"
       - "CONSUL_BIND_INTERFACE=eth0"
