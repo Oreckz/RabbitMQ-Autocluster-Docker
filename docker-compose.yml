@@ -1,4 +1,4 @@
-version: "3"
+version: "3.2"
 
 networks:
   swarm:
@@ -33,7 +33,7 @@ services:
     depends_on:
       - "seed"
     deploy:
-      mode: global                                      ##this will deploy to all nodes that
+      mode: global                                      ##this will deploy to all nodes
     environment:
       - "CONSUL_LOCAL_CONFIG={\"disable_update_check\": true}"
       - "CONSUL_BIND_INTERFACE=eth0"
@@ -57,7 +57,6 @@ services:
     depends_on:
       - "cluster"
     image: rabbitmq:autocluster
-    container_name: rabbit
     networks:
       - swarm
     ports:
