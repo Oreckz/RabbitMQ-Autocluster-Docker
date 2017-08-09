@@ -27,6 +27,8 @@ services:
       - -bind={{ GetInterfaceIP "eth0" }}
     networks:
       - "swarm"
+    ports:
+      - "8301"
 
   cluster:
     image: consul:latest
