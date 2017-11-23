@@ -31,6 +31,8 @@ services:
       - "consul"
     image: rabbitmq:autocluster
     container_name: rabbit
+    deploy:
+      mode: global
     networks:
       - swarm
     ports:
